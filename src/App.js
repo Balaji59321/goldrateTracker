@@ -10,9 +10,10 @@ function App() {
   ]);
   console.log(user);
   function changeHandler(e) {
+    console.log(typeof +e.target.value);
     setUser((prev) => {
       let newState = [...prev];
-      newState[0][e.target.name] = e.target.value;
+      newState[0][e.target.name] = +e.target.value > 0 ? e.target.value : 0;
       return [...newState];
     });
   }
@@ -35,6 +36,7 @@ function App() {
   return (
     <div>
       <h3 className="title">Gold Rate Calculator</h3>
+      <p>Note: Input for all fields should of number</p>
       <div className="result">
         <div className="form">
           <h3>User Details</h3>
@@ -54,7 +56,7 @@ function App() {
             </select>
           </div>
           <div className="field">
-            <label>VAT (%)</label>
+            <label>Wastage (%)</label>
             <input type="text" name="vat" onChange={changeHandler} />
           </div>
           <div className="field">
@@ -78,7 +80,7 @@ function App() {
             <span>{priceHandler()}</span>
           </div>
           <div className="field">
-            <span>VAT :</span>
+            <span>Wastage :</span>
             <span>{(user[0]["vat"] * priceHandler()) / 100}</span>
           </div>
           <div className="field">
