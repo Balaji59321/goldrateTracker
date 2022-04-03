@@ -36,7 +36,7 @@ function App() {
   return (
     <div>
       <h3 className="title">Gold Rate Calculator</h3>
-      <p>Note: Input for all fields should of number</p>
+      <p>Note: Input for all fields should be of type number</p>
       <div className="result">
         <div className="form">
           <h3>User Details</h3>
